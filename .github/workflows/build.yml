@@ -7,6 +7,7 @@ jobs:
         runs-on: ubuntu-18.04
         env:
             ACTIVATE_TF_VIRTUALENV : "source /mnt/tensorflow-dev/bin/activate"
+            CMAKE_BUILD : "mkdir -p build && cd build && cmake .. && make"
         steps:
             - uses: actions/checkout@master
               with:
@@ -20,7 +21,9 @@ jobs:
             - name: Assignment2
               run: docker-compose run --rm -w /mnt/Assignment2-Dataflow_Analysis cscd70-dev make
             - name: Assignemnt3
-              run: docker-compose run --rm -w /mnt/Assignment3-Loop_Invariant_Code_Motion/LICM cscd70-dev make
+              run: |
+                   docker-compose run --rm -w /mnt/Assignment3-Loop_Invariant_Code_Motion/LICM cscd70-dev make
+                   docker-compose run --rm -w /mnt/Assignment3-Loop_Invariant_Code_Motion/LINM cscd70-dev bash -c "${CMAKE_BUILD} && ctest -V"
             - name: Tutorial1
               run: docker-compose run --rm -w /mnt/Tutorial01-Introduction_to_LLVM/Example1-Cpp_Fundamentals cscd70-dev make
             - name: Tutorial2
