@@ -13,7 +13,7 @@ jobs:
               run: docker-compose run --rm -w /mnt/Assignment1-Introduction_to_LLVM/FunctionInfo cscd70-dev make
             - name: Assignment2
               run: docker-compose run --rm -w /mnt/Assignment2-Dataflow_Analysis cscd70-dev make
-            - name: Assignemnt 3
+            - name: Assignemnt3
               run: docker-compose run --rm -w /mnt/Assignment3-Loop_Invariant_Code_Motion/LICM cscd70-dev make
             - name: Tutorial1
               run: docker-compose run --rm -w /mnt/Tutorial01-Introduction_to_LLVM/Example1-Cpp_Fundamentals cscd70-dev make
@@ -23,3 +23,5 @@ jobs:
                    docker-compose run --rm -w /mnt/Tutorial02-Introduction_to_LLVM_ii/Example2-Pass_Manager cscd70-dev make
             - name: Tutorial4
               run: docker-compose run --rm -w /mnt/Tutorial04-Static_Single_Assignment/Example1-SSA cscd70-dev make
+            - name: Tutorial8
+              run: docker-compose run --rm -w /mnt/Tutorial08-Loop_Invariant_Code_Motion/Example1-TF_Control_Flow cscd70-dev bash -c "python3 control_flow_ops.py"
