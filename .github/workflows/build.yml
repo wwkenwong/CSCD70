@@ -5,10 +5,16 @@ on: [push]
 jobs:
     build:
         runs-on: ubuntu-18.04
+        env:
+            ACTIVATE_TF_VIRTUALENV : "source /mnt/tensorflow-dev/bin/activate"
         steps:
-            - uses: actions/checkout@v1
+            - uses: actions/checkout@master
+              with:
+                submodules: recursive
             - name: CSCD70 Docker
               run: docker-compose build cscd70-dev
+            - name: Install TensorFlow
+              run: docker-compose run --rm -w /mnt/ cscd70-dev /mnt/scripts/installTensorFlow.sh
             - name: Assignment1
               run: docker-compose run --rm -w /mnt/Assignment1-Introduction_to_LLVM/FunctionInfo cscd70-dev make
             - name: Assignment2
@@ -24,4 +30,4 @@ jobs:
             - name: Tutorial4
               run: docker-compose run --rm -w /mnt/Tutorial04-Static_Single_Assignment/Example1-SSA cscd70-dev make
             - name: Tutorial8
-              run: docker-compose run --rm -w /mnt/Tutorial08-Loop_Invariant_Code_Motion/Example1-TF_Control_Flow cscd70-dev bash -c "python3 control_flow_ops.py"
+              run: docker-compose run --rm -w /mnt/Tutorial08-Loop_Invariant_Code_Motion/Example1-TF_Control_Flow cscd70-dev bash -c "${ACTIVATE_TF_VIRTUALENV} && python3 control_flow_ops.py"
