@@ -4,8 +4,8 @@ build
 *.ll
 *.so
 
-# IDE
+# Mac
 .DS_Store
 
-# TensorFlow Dev
+# TensorFlow Dev VirtualEnv
 tensorflow-dev
