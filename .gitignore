@@ -6,3 +6,6 @@ build
 
 # IDE
 .DS_Store
+
+# TensorFlow Dev
+tensorflow-dev

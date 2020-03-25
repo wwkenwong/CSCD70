@@ -1,0 +1,9 @@
+{
+        "files.watcherExclude": {
+                "**/.git/**": true,
+                "**/build/**": true,
+                "**/googletest/**": true,
+                "**/tensorflow-dev/**": true,
+        },
+        "python.pythonPath": "tensorflow-dev/bin/python3.6"
+}
