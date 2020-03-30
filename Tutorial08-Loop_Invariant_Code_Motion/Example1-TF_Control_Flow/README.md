@@ -5,7 +5,7 @@ virtual environment first:
 
 ```bash
 # `CSCD70_ROOT_DIR` refers to the root directory of CSCD70.
-./${CSCD70_ROOT_DIR}/scripts/installTensorFlow.sh
+bsah ${CSCD70_ROOT_DIR}/scripts/installTensorFlow.sh
 # Activate the virtual environment.
 source ${CSCD70_ROOT_DIR}/tensorflow-dev/bin/activate
 # ...
