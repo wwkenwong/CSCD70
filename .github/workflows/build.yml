@@ -15,7 +15,7 @@ jobs:
             - name: CSCD70 Docker
               run: docker-compose build cscd70-dev
             - name: Install TensorFlow
-              run: docker-compose run --rm -w /mnt/ cscd70-dev /mnt/scripts/installTensorFlow.sh
+              run: docker-compose run --rm -w /mnt cscd70-dev /mnt/scripts/installTensorFlow.sh
             - name: Assignment1
               run: docker-compose run --rm -w /mnt/Assignment1-Introduction_to_LLVM/FunctionInfo cscd70-dev make
             - name: Assignment2
