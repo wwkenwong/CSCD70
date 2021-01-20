@@ -3,7 +3,7 @@ OPT_PASSES := -function-info
 
 LLVM_VERSION ?= 6.0
 
-CXXFLAGS := $(shell llvm-config-$(LLVM_VERSION) --cxxflags)
+CXXFLAGS := $(shell llvm-config-$(LLVM_VERSION) --cxxflags) -fPIC
 
 OPT_OBJs := $(subst .cpp,.o,$(wildcard *.cpp))
 
